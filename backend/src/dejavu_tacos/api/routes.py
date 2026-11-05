@@ -20,9 +20,9 @@ from dejavu_tacos.models import (
 )
 from dejavu_tacos.temporal_client import connect_temporal_client, temporal_task_queue
 from dejavu_tacos.temporal_ui import (
-    temporal_namespace,
     temporal_namespace_url,
     temporal_ui_base_url,
+    temporal_ui_namespace,
     temporal_workflow_url,
 )
 from dejavu_tacos.traditional.handler import process_order_traditional
@@ -70,7 +70,7 @@ async def worker_language():
 async def temporal_ui():
     return {
         "base_url": temporal_ui_base_url(),
-        "namespace": temporal_namespace(),
+        "namespace": temporal_ui_namespace(),
         "namespace_url": temporal_namespace_url(),
     }
 
